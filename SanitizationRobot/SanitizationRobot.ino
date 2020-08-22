@@ -1,19 +1,30 @@
+//defining pin numbers to be used for the project
 #define limitSwitch 2
 #define resetButton 3
 #define LIGHT 13
 #define MOTOR_1 8
 #define MOTOR_2 9
 
+//defining booleans for keeping track of interrupts
 volatile bool cal_end = false;
 volatile bool reset_pressed = false;
+
+//function to move down for "sec" seconds
 void move_down(int sec){
+  //turn the motor on
   digitalWrite(MOTOR_1, HIGH);
   digitalWrite(MOTOR_2, LOW);
-  delay(1000*sec); //keep moving for sec seconds
+
+  //keep moving for sec seconds
+  delay(1000*sec);
+
+  //stop moving
   motor_stop();
 }
 
+
 void move_down_cal(){
+  
   digitalWrite(MOTOR_1, HIGH);
   digitalWrite(MOTOR_2, LOW);
 }
