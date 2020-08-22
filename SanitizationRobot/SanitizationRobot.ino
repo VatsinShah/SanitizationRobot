@@ -52,7 +52,7 @@ void move_up(int sec){
 //function to calibrate the position of the lights
 void Calibration(){
   //for debugging
-  Serial.println("inside calibration");
+  //Serial.println("inside calibration");
 
   //make sure light is off
   digitalWrite(LIGHT, HIGH);
@@ -70,7 +70,7 @@ void Calibration(){
     //if limit switch is pressed make sure flag is set
     cal_end = true;
     //for debugging
-    Serial.println("LS is pressed");
+    //Serial.println("LS is pressed");
   }
 
  /*
@@ -87,13 +87,13 @@ void Calibration(){
   cal_end = false;
 
   //for debugging
-  Serial.println("end of calibration");
+  //Serial.println("end of calibration");
 }
 
 //ISR triggered when limit switch is pressed
 void Calibration_end(){
   //for debugging
-  Serial.println("limit reached");
+  //Serial.println("limit reached");
 
   //set value of cal_end
   cal_end = true;
@@ -102,7 +102,7 @@ void Calibration_end(){
 //ISR triggered when start button is pressed
 void Reset(){
   //for debugging
-  Serial.println("inside reset");
+  //Serial.println("inside reset");
 
   //set value of reset_pressed
   reset_pressed = true;
@@ -110,7 +110,7 @@ void Reset(){
 
 void setup() {
   //for debugging
-  Serial.begin(115200);
+  //Serial.begin(115200);
 
   //prepare digital pins to control relays
   pinMode(LIGHT, OUTPUT);
@@ -131,7 +131,7 @@ void setup() {
 
 void loop() {
   //for debugging
-  Serial.println("waiting for input");
+  //Serial.println("waiting for input");
   
   //make sure this variable is false, because it WILL be set to true because of initialization
   reset_pressed = false;
@@ -146,13 +146,13 @@ void loop() {
   delay(30*1000);
 
   //for debugging
-  Serial.println("Switching light on...");
+  //Serial.println("Switching light on...");
   
   //switch lights on
   digitalWrite(LIGHT,LOW);
 
   //for debugging
-  Serial.println("moving now");
+  //Serial.println("moving now");
 
   //initialize variable for movement time
   int sec = 14;
